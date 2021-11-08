@@ -1,55 +1,28 @@
-version: '3'
-
+version: '2'
 services:
-  app_test:
-    container_name: gamecurrency-api-test
+  api:
     build:
       context: .
       dockerfile: ./Dockerfile.test
+    ports:
+      - "8083:9000"
+      #- "443:443" # https
+    restart: always
+    env_file:
+      - .env
+    links:
+      - db_gm_test
+  db_gm_test:
+    build:
+      context: .
+      dockerfile: mysql/Dockerfile
+    ports:
+      - "3366:3306"
+    restart: always
+    environment:
+      MYSQL_USER: userg
+      MYSQL_PASSWORD: qwerty123
+      MYSQL_ROOT_PASSWORD: qwerty123
+      MYSQL_DATABASE: game_currency_test
     volumes:
-      - api_test:/app/src/app/
-    depends_on:
-      #- postgres_test
-      - mysql_test
-    networks:
-      - game_currency_test
-
- # postgres_test:
- #   image: postgres:latest
- #   container_name: full_db_test_postgress
- #   environment:
- #     - POSTGRES_USER=${TEST_DB_USER}  
- #     - POSTGRES_PASSWORD=${TEST_DB_PASSWORD}
- #     - POSTGRES_DB=${TEST_DB_NAME}
- #     - DATABASE_HOST=${TEST_DB_HOST} 
- #   ports:
- #     - '5555:5432'
- #   volumes:
- #     - database_postgres_test:/var/lib/postgresql/data
- #   networks:
- #     - game_currency_test
-    
-  # mysql_test:
-     image: mysql:5.7
-     container_name: full_db_test_mysql    
-     ports: 
-       - 3333:3306
-     environment: 
-       - MYSQL_DATABASE=${TEST_DB_NAME}
-       - MYSQL_USER=${TEST_DB_USER}
-       - MYSQL_PASSWORD=${TEST_DB_PASSWORD}
-       - MYSQL_ROOT_PASSWORD=${TEST_DB_PASSWORD}
-       - DATABASE_HOST=${TEST_DB_HOST} 
-     volumes:
-       - database_mysql_test:/var/lib/mysql
-     networks:
-       - game_currency_test
-  
-volumes:
-  api_test:
-  #database_postgres_test:
-  database_mysql_test:
-
-networks:
-  game_currency_test:
-    driver: bridge
+      - ./mysql/_local_mysql_data:/var/lib/mysql
