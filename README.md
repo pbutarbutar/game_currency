@@ -1,4 +1,4 @@
-# Go-JWT-Mysql-Restful-API
+# Mysql-Restful-API
 
 How To build docker and run all service in docker compose.
 1. Please do build first
@@ -48,5 +48,5 @@ How to use enpdoint please follow like below,
 
 Documentation also create in swagger, apiary.io
 
-My Experience i have create API documentation in apiary a API GraphQL --> https://pintekid.docs.apiary.io/#
+My Experience i have created an API documentation in apiary an API GraphQL --> https://pintekid.docs.apiary.io/#
 
