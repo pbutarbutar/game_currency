@@ -4,7 +4,7 @@ How To Run Docker
 
 1. Please do build first
     --> docker-compose build
-2. Up Docker Compose
+2. For to running All service do Docker Compose up
     --> docker-compose up -d
 
 In the docker compose there is service for ready to installed
@@ -14,7 +14,8 @@ In the docker compose there is service for ready to installed
 After 2 steps runing completed
 Port Expose : 8083 and apps already can to using
 
-All endpoit there is already to use,
+All endpoint there is already to use.
+How to use enpdoint please follow like below,
 1. localhost:8083/login {POST}
     payloads in the body should json format
      {
@@ -27,7 +28,7 @@ All endpoit there is already to use,
         "name":"Parulian4",
         "author_id":1
      }
-     and set authorization bearer a token from result login
+     and set authorization bearer a token from result login (Required)
 3. localhost:8083/currencies {POST}
     payloads in the body should json format
      {
@@ -35,7 +36,7 @@ All endpoit there is already to use,
         "currency_to":2,
         "rate":29
      }
-     and set authorization bearer a token from result login 
+     and set authorization bearer a token from result login (Required)
 
 4. localhost:8083/calculatecurrency {POST}
     payloads in the body should json format
@@ -44,10 +45,9 @@ All endpoit there is already to use,
         "currency_to":2,
         "amount":580
     }
-     and set authorization bearer a token from result login        
+     and set authorization bearer a token from result login  (Required)      
 
+Documentation also create in swagger, apiary.io
 
-
-
-Documentation
+My Experience i have create API documentation in apiary a API GraphQL --> https://pintekid.docs.apiary.io/#
 
