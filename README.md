@@ -9,14 +9,9 @@ How To build docker and run all service in docker compose.
 
 For to run test unit we only change docker-compose.test.yml to docker-compose.yml
 
-
-In the docker compose there is service for ready to installed
+In the docker compose there is service is already success to install
 1. Go
 2. MySQL
-
-
-After 2 steps runing completed
-Port Expose : 8083 and apps already can to using
 
 All endpoint there is already to use.
 How to use enpdoint please follow like below,
