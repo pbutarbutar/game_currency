@@ -1,15 +1,19 @@
 # Go-JWT-Mysql-Restful-API
 
-How To Run Docker
-
+How To build docker and run all service in docker compose.
 1. Please do build first
-    --> docker-compose build
+    --> docker-compose build 
 2. For to running All service do Docker Compose up
     --> docker-compose up -d
+3. All container services it's going be running well and can to use, port expose 8083
+
+For to run test unit we only change docker-compose.test.yml to docker-compose.yml
+
 
 In the docker compose there is service for ready to installed
 1. Go
 2. MySQL
+
 
 After 2 steps runing completed
 Port Expose : 8083 and apps already can to using
